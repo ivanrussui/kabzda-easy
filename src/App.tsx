@@ -26,9 +26,9 @@ function App() {
             {/*<Rating value={4}/>*/}
             {/*<Rating value={5}/>*/}
             <OnOff />
-            <OnOff />
+            {/*<OnOff />*/}
             <UncontrolledAccordion titleValue={'Menu'} />
-            <UncontrolledAccordion titleValue={'Submenu'} />
+            {/*<UncontrolledAccordion titleValue={'Submenu'} />*/}
             <UncontrolledRating />
             <UncontrolledRating />
             <UncontrolledRating />

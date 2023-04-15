@@ -15,8 +15,6 @@ export function UncontrolledRating(props: RatingPropsType) {
         setValue(value)
     }
 
-
-
     // const brnStyle = {
     //     margin: '0 5px',
     //     // backgroundColor: 'red',
@@ -30,16 +28,23 @@ export function UncontrolledRating(props: RatingPropsType) {
 
     return (
         <div>
-            <Star selected={ value > 0 } />
-            <button className={value > 0 ? styles.btnStyleCool : styles.btnStyle} onClick={() => onClickValueHandler(1)}>1</button>
-            <Star selected={ value > 1 } />
-            <button className={value > 1 ? styles.btnStyleCool : styles.btnStyle} onClick={() => onClickValueHandler(2)}>2</button>
-            <Star selected={ value > 2 } />
-            <button className={value > 2 ? styles.btnStyleCool : styles.btnStyle} onClick={() => onClickValueHandler(3)}>3</button>
-            <Star selected={ value > 3 } />
-            <button className={value > 3 ? styles.btnStyleCool : styles.btnStyle} onClick={() => onClickValueHandler(4)}>4</button>
-            <Star selected={ value > 4 } />
-            <button className={value > 4 ? styles.btnStyleCool : styles.btnStyle} onClick={() => onClickValueHandler(5)}>5</button>
+
+            <Star selected={ value > 0 } onClickValueHandler={() => onClickValueHandler(1)}/>
+            <Star selected={ value > 1 } onClickValueHandler={() => onClickValueHandler(2)}/>
+            <Star selected={ value > 2 } onClickValueHandler={() => onClickValueHandler(3)}/>
+            <Star selected={ value > 3 } onClickValueHandler={() => onClickValueHandler(4)}/>
+            <Star selected={ value > 4 } onClickValueHandler={() => onClickValueHandler(5)}/>
+
+            {/*<Star selected={ value > 0 } onClickValueHandler={onClickValueHandler}/>*/}
+            {/*<button className={value > 0 ? styles.btnStyleCool : styles.btnStyle} onClick={() => onClickValueHandler(1)}>1</button>*/}
+            {/*<Star selected={ value > 1 } onClickValueHandler={onClickValueHandler}/>*/}
+            {/*<button className={value > 1 ? styles.btnStyleCool : styles.btnStyle} onClick={() => onClickValueHandler(2)}>2</button>*/}
+            {/*<Star selected={ value > 2 } onClickValueHandler={onClickValueHandler}/>*/}
+            {/*<button className={value > 2 ? styles.btnStyleCool : styles.btnStyle} onClick={() => onClickValueHandler(3)}>3</button>*/}
+            {/*<Star selected={ value > 3 } onClickValueHandler={onClickValueHandler}/>*/}
+            {/*<button className={value > 3 ? styles.btnStyleCool : styles.btnStyle} onClick={() => onClickValueHandler(4)}>4</button>*/}
+            {/*<Star selected={ value > 4 } onClickValueHandler={onClickValueHandler}/>*/}
+            {/*<button className={value > 4 ? styles.btnStyleCool : styles.btnStyle} onClick={() => onClickValueHandler(5)}>5</button>*/}
 
             {/*<Star selected={ value > 0 } /><button>1</button>*/}
             {/*<Star selected={ value > 1 } /><button>2</button>*/}
@@ -52,13 +57,14 @@ export function UncontrolledRating(props: RatingPropsType) {
 
 type StarPropType = {
     selected: boolean
+    onClickValueHandler: () => void
 }
 
 function Star(props: StarPropType) {
     // console.log('Star rendering')
     if (props.selected) {
-        return <span><b>Star</b> </span>
+        return <span onClick={props.onClickValueHandler}><b> Star </b> </span>
     } else {
-        return <span>Star </span>
+        return <span  onClick={props.onClickValueHandler}> Star </span>
     }
 }
