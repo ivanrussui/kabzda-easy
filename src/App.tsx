@@ -4,6 +4,7 @@ import React from 'react';
 import Accordion from './components/Accordion/Accordion';
 import { Rating } from './components/Rating/Rating';
 import { OnOff } from './components/OnOff/OnOff';
+import UncontrolledAccordion from './components/UncontrolledAccordion/Accordion';
 
 function App() {
     // debugger
@@ -25,6 +26,8 @@ function App() {
             {/*<Rating value={5}/>*/}
             <OnOff />
             <OnOff />
+            <UncontrolledAccordion titleValue={'Menu'} />
+            <UncontrolledAccordion titleValue={'Submenu'} />
             {/*<OnOff value={true} />*/}
             {/*<OnOff value={false} />*/}
         </div>
