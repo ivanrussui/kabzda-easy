@@ -22,16 +22,19 @@ function App() {
         {/*Article 1*/}
         {/*<Accordion titleValue={'Submenu'} collapsed={false} />*/}
         {/*Article 2*/}
-        <OnOff
-            // setOn={setOn}
-            onClick={setOn}
-            on={on} />
-        <UncontrolledOnOff />
+
+        {/*<OnOff*/}
+        {/*    // setOn={setOn}*/}
+        {/*    onClick={setOn}*/}
+        {/*    on={on} />*/}
+
+        <UncontrolledOnOff onChange={setOn} /> {on.toString()}
         {/*<Rating value={3}/>*/}
         <Rating value={ratingValue} onClick={setRatingValue} />
         <UncontrolledRating />
         <Accordion titleValue={'Menu'}
-                   setAccordionCollapsed={setAccordionCollapsed}
+                   // setAccordionCollapsed={setAccordionCollapsed}
+                   setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}
                    accordionCollapsed={accordionCollapsed}
         />
         <UncontrolledAccordion titleValue={'Menu'} />

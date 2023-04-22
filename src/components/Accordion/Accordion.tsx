@@ -3,7 +3,8 @@ import React from 'react';
 type AccordionPropsType = {
   titleValue: string
   accordionCollapsed: boolean
-  setAccordionCollapsed: (accordionCollapsed: boolean) => void
+  // setAccordionCollapsed: (accordionCollapsed: boolean) => void
+  setAccordionCollapsed: () => void
 }
 
 
@@ -11,10 +12,9 @@ function Accordion(props: AccordionPropsType) {
   // debugger
 const onClickHandler = () => {
   // console.log(props.accordionCollapsed)
-  props.setAccordionCollapsed(!props.accordionCollapsed)
+  props.setAccordionCollapsed()
 }
   // console.log('Accordion rendering')
-  // if (props.collapsed) {
   return (
       <>
         <AccordionTitle title={props.titleValue} onClick={onClickHandler} />
