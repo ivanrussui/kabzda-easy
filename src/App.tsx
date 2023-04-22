@@ -1,57 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 import Accordion from './components/Accordion/Accordion';
-import { Rating } from './components/Rating/Rating';
-import { OnOff } from './components/OnOff/OnOff';
-import UncontrolledAccordion from './components/UncontrolledAccordion/Accordion';
+import { Rating, RatingValueType } from './components/Rating/Rating';
+import { UncontrolledOnOff } from './components/UncontrolledOnOff/UncontrolledOnOff';
+import UncontrolledAccordion from './components/UncontrolledAccordion/UncontrolledAccordion';
 import { UncontrolledRating } from './components/UncontrolledRating/UncontrolledRating';
+import { OnOff } from './components/OnOff/OnOff';
 
 function App() {
-    // debugger
+  // debugger
 
-    return (
-        <div className="App">
-            {/*<PageTitle title={'This is App Component'}/>*/}
-            {/*<PageTitle title={'My Component'}/>*/}
-            {/*Article 1*/}
-            {/*<Rating value={3}/>*/}
-            {/*<Accordion titleValue={'Menu'} collapsed={true} />*/}
-            {/*<Accordion titleValue={'Submenu'} collapsed={false} />*/}
-            {/*Article 2*/}
-            {/*<Rating value={0}/>*/}
-            {/*<Rating value={1}/>*/}
-            {/*<Rating value={2}/>*/}
-            {/*<Rating value={3}/>*/}
-            {/*<Rating value={4}/>*/}
-            {/*<Rating value={5}/>*/}
-            <OnOff />
-            {/*<OnOff />*/}
-            <UncontrolledAccordion titleValue={'Menu'} />
-            {/*<UncontrolledAccordion titleValue={'Submenu'} />*/}
-            <UncontrolledRating />
-            <UncontrolledRating />
-            <UncontrolledRating />
-            <UncontrolledRating />
-            <UncontrolledRating />
-            {/*<OnOff value={true} />*/}
-            {/*<OnOff value={false} />*/}
-        </div>
-    );
+  const [ ratingValue, setRatingValue ] = useState<RatingValueType>(0);
+  const [ accordionCollapsed, setAccordionCollapsed ] = useState<boolean>(true);
+  const [ on, setOn ] = useState<boolean>(false);
+
+  return (
+      <div className="App">
+        {/*<PageTitle title={'This is App Component'}/>*/}
+        {/*<PageTitle title={'My Component'}/>*/}
+        {/*Article 1*/}
+        {/*<Accordion titleValue={'Submenu'} collapsed={false} />*/}
+        {/*Article 2*/}
+        <OnOff
+            // setOn={setOn}
+            onClick={setOn}
+            on={on} />
+        <UncontrolledOnOff />
+        {/*<Rating value={3}/>*/}
+        <Rating value={ratingValue} onClick={setRatingValue} />
+        <UncontrolledRating />
+        <Accordion titleValue={'Menu'}
+                   setAccordionCollapsed={setAccordionCollapsed}
+                   accordionCollapsed={accordionCollapsed}
+        />
+        <UncontrolledAccordion titleValue={'Menu'} />
+        {/*<UncontrolledAccordion titleValue={'Submenu'} />*/}
+        {/*<UncontrolledRating />*/}
+        {/*<UncontrolledRating />*/}
+        {/*<UncontrolledRating />*/}
+        {/*<OnOff value={true} />*/}
+        {/*<OnOff value={false} />*/}
+      </div>
+  );
 }
 
 type PageTitlePropsType = {
-    title: string
+  title: string
 }
 
 function PageTitle(props: PageTitlePropsType) {
-    return <h2>{props.title}</h2>
+  return <h2>{props.title}</h2>
 }
 
 
 function Hello() {
-    debugger
-    alert('Hello');
+  debugger
+  alert('Hello');
 }
 
 // Hello()
